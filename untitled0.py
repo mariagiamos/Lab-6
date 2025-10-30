@@ -67,6 +67,12 @@ sns.relplot(data=wdi_wide, x="Life expectancy, male", y="GNI per capita", kind="
 #plot for females
 sns.relplot(data=wdi_wide, x="Life expectancy, female", y="GNI per capita", kind="line")
 
+#2
+#plot for males
+sns.relplot(data=wdi_wide, x="Life expectancy, male", y="GNI per capita", kind="line", hue="Region")
+
+#plot for females
+sns.relplot(data=wdi_wide, x="Life expectancy, female", y="GNI per capita", kind="line", hue="Region")
 
 
 
