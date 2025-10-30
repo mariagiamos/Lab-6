@@ -51,6 +51,9 @@ print(pd.crosstab(wdi_wide["High Income Economy"], wdi_wide["Region"]))
 # This is done without a loop — pandas does it for us super fast.
 filtered = wdi_wide[wdi_wide["Life expectancy, female"] > 80]
 
+# Print how many countries fit the condition
+# The len() function counts how many countries meet that condition.
+print("Number of countries where women live more than 80 years:", len(filtered))
 #Part 4
 import matplotlib as plt
 sns.replot(wdi_wide)
