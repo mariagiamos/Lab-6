@@ -20,3 +20,6 @@ wdi_wide.info()
 #4
 print(wdi_wide.nunique())
 
+#5
+print(wdi_wide.describe())
+#this output of this fuction describes 
