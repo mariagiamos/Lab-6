@@ -60,6 +60,10 @@ print("Number of countries where women live more than 80 years:", len(filtered))
 print(filtered[["Country Name", "Life expectancy, female"]])
 
 #Part 4
+# basic scatter just to see if there's any pattern at all
+import matplotlib.pyplot as plt
+#plot for male
+sns.relplot(data=wdi_wide, x="Life expectancy, male", y="GNI per capita", kind="line")
 
 
 
