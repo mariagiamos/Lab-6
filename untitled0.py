@@ -13,3 +13,10 @@ print(wdi_wide)
 #3
 #step 1, show data size and data types
 wdi_wide.info()
+#Empty Values=Total entries-Non null count
+#Physicians= 217-207=10
+#Population= 217-217=0
+
+#4
+print(wdi_wide.nunique())
+
