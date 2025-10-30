@@ -54,6 +54,11 @@ filtered = wdi_wide[wdi_wide["Life expectancy, female"] > 80]
 # Print how many countries fit the condition
 # The len() function counts how many countries meet that condition.
 print("Number of countries where women live more than 80 years:", len(filtered))
+
+# And now we need to print out the actual country names along with the female life expectancy.
+# This helps us double-check which ones they are and what their values look like.
+print(filtered[["Country Name", "Life expectancy, female"]])
+
 #Part 4
 import matplotlib as plt
 sns.replot(wdi_wide)
