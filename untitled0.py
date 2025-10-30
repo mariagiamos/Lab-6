@@ -60,11 +60,6 @@ print("Number of countries where women live more than 80 years:", len(filtered))
 print(filtered[["Country Name", "Life expectancy, female"]])
 
 #Part 4
-import matplotlib as plt
-sns.replot(wdi_wide)
-plt.xlabel("GNI per capita")
-plt.ylabel="Life expectency"
-print(plt.show())
 
 
 
