@@ -47,6 +47,9 @@ print(wdi_wide["High Income Economy"].value_counts())
 print(pd.crosstab(wdi_wide["High Income Economy"], wdi_wide["Region"]))
 
 #9
+# we can filter only the countries where women live more than 80 years.
+# This is done without a loop — pandas does it for us super fast.
+filtered = wdi_wide[wdi_wide["Life expectancy, female"] > 80]
 
 #Part 4
 import matplotlib as plt
