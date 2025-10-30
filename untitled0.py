@@ -9,7 +9,7 @@ print("lab 6")
 import pandas as pd
 wdi_wide=pd.read_csv("wdi_wide.csv")
 print(wdi_wide)
-import Seaborn as sns
+import seaborn as sns
 
 #3
 #step 1, show data size and data types
