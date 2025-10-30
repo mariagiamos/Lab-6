@@ -65,6 +65,9 @@ import matplotlib.pyplot as plt
 #plot for male
 sns.relplot(data=wdi_wide, x="Life expectancy, male", y="GNI per capita", kind="line")
 
+#plot for females
+sns.relplot(data=wdi_wide, x="Life expectancy, female", y="GNI per capita", kind="line")
+
 
 
 
