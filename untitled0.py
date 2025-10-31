@@ -99,7 +99,28 @@ sns.relplot(data=wdi_wide, x="Life expectancy, male", y="Internet use")
 
 
 
+#do greenhouse gases have an effect on female life expectancy
+sns.relplot(data=wdi_wide, x="Life expectancy, female", y="Greenhouse gas emissions", col="Region", kind="scatter")
+#Greenhouse gases do not have any correlation with female life expectancy
 
+#does internet use have an effect on female life expectancy
+sns.relplot(data=wdi_wide, x="Life expectancy, female", y="Internet use", col="Region", kind="scatter")
+#Internet use has some correlation on female life expectancy. The internet is used throughout all kind of ages. 
+
+#do physicians have an effect on female life expectancy
+sns.relplot(data=wdi_wide, x="Life expectancy, female", y="Physicians", col="Region", kind="scatter")
+#In asia, America, Oceania there is a slight correlation although in africa there is no correlation.
+
+#does the Tertiary education for males have an effect on female life expectancy
+sns.relplot(data=wdi_wide, x="Life expectancy, female", y="Tertiary education, male", col="Region", kind="scatter")
+#There is a very weak correlation between tertiary education for males having an effect on female life expectancy in Asia, Oceania,Europe and america and close to no correlation in Africa.
+
+#does high income economy have an effect on female life expectancy
+sns.relplot(data=wdi_wide, x="Life expectancy, female", y="High Income Economy",col="Region", kind="scatter")
+#In all regions,there is no effect and correlation between high income economy and female life expectancy.
+
+
+    
 
       
       
