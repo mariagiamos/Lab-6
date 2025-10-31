@@ -101,6 +101,11 @@ wdi_wide["emissions_per_capita"] = wdi_wide["Greenhouse gas emissions"] / wdi_wi
 # Then plot using the new column
 sns.relplot(data=wdi_wide, x="Internet use", y="GNI per capita", hue="Region", kind="scatter")
 
+#b Which are the countries with high emissions? (> 0.03)
+# countries with high emissions
+high_emissions = wdi_wide[wdi_wide["emissions_per_capita"] > 0.03]
+print(high_emissions[["Country Name", "Region", "emissions_per_capita"]])
+
 sns.relplot(data=wdi_wide, x="Life expectancy, female", y="Internet use")
 sns.relplot(data=wdi_wide, x="Life expectancy, male", y="Internet use")
 #There is some correlation between female and male life expectancy with internet usage
