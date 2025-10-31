@@ -88,6 +88,17 @@ sns.lmplot(data=wdi_wide, x="Life expectancy, male", y="GNI per capita", hue="Re
 #plot for females
 sns.lmplot(data=wdi_wide, x="Life expectancy, female", y="GNI per capita", hue="Region")
 
+#5
+sns.relplot(data=wdi_wide, x="Life expectancy, female", y="Greenhouse gas emissions")
+sns.relplot(data=wdi_wide, x="Life expectancy, male", y="Greenhouse gas emissions")
+#There is no correlation between female or male life expectancy and greenhouse gas emissions.
+
+sns.relplot(data=wdi_wide, x="Life expectancy, female", y="Internet use")
+sns.relplot(data=wdi_wide, x="Life expectancy, male", y="Internet use")
+#There is some correlation between female and male life expectancy with internet usage
+
+
+
 
 
       
