@@ -1,9 +1,9 @@
 print("lab 6")
 
 #1
-#Are population size and healthcare resources balanced across the contries?
-#is there a correlation between internet usage and ,ale life expectancy?
-#do females or males have a higher life expenctancy in regions?
+#Are population size and healthcare resources balanced across the countries?
+#is there a correlation between internet usage and male life expectancy?
+#do females or males have a higher life expectancy in regions?
 
 #2
 import pandas as pd
@@ -23,7 +23,7 @@ print(wdi_wide.nunique())
 
 #5
 print(wdi_wide.describe())
-#this output of this fuction describes the statistics of the GNI and the high income economy.
+#this output of this function describes the statistics of the GNI and the high income economy.
 #it shows the count (number of non empty values), mean (average GNI and income), the standard deviation, the minimum value, 25% percentile , 50% (median), 75% percentile and the maximum value. 
 
 #6
