@@ -93,6 +93,14 @@ sns.relplot(data=wdi_wide, x="Life expectancy, female", y="Greenhouse gas emissi
 sns.relplot(data=wdi_wide, x="Life expectancy, male", y="Greenhouse gas emissions")
 #There is no correlation between female or male life expectancy and greenhouse gas emissions.
 
+#6
+#a Is there any association between Internet use and emissions per capita?
+#emission per capita = greenhouse gas emission/population
+# Create a new column for emissions per capita
+wdi_wide["emissions_per_capita"] = wdi_wide["Greenhouse gas emissions"] / wdi_wide["Population"]
+# Then plot using the new column
+sns.relplot(data=wdi_wide, x="Internet use", y="GNI per capita", hue="Region", kind="scatter")
+
 sns.relplot(data=wdi_wide, x="Life expectancy, female", y="Internet use")
 sns.relplot(data=wdi_wide, x="Life expectancy, male", y="Internet use")
 #There is some correlation between female and male life expectancy with internet usage
