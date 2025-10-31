@@ -119,6 +119,16 @@ high_income["high_emitter"] = high_income["emissions_per_capita"] > 0.03
 # Print results
 print(high_income[["Country Name", "Region", "emissions_per_capita", "high_emitter"]])
 
+# Plot: emissions per capita for high income countries
+sns.relplot(data=high_income, x="Internet use", y="emissions_per_capita", hue="Region", kind="scatter")
+
+
+
+
+
+
+>>>>>>> Stashed changes
+
 sns.relplot(data=wdi_wide, x="Life expectancy, female", y="Internet use")
 sns.relplot(data=wdi_wide, x="Life expectancy, male", y="Internet use")
 #There is some correlation between female and male life expectancy with internet usage
