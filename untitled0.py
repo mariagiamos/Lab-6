@@ -77,6 +77,7 @@ sns.relplot(data=wdi_wide, x="Life expectancy, female", y="GNI per capita", kind
 #3 (ask if its correct)
 #plot for male with lines and standard deviation
 sns.relplot(data=wdi_wide, x="Life expectancy, male", y="GNI per capita", kind="line", hue="Region", errorbar="sd")
+#explain why it stays the same
 
 #plot for female with lines and standard deviation
 sns.relplot(data=wdi_wide, x="Life expectancy, female", y="GNI per capita", kind="line", hue="Region", errorbar="sd")
