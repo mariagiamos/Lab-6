@@ -94,47 +94,9 @@ sns.relplot(data=wdi_wide, x="Life expectancy, female", y="Greenhouse gas emissi
 sns.relplot(data=wdi_wide, x="Life expectancy, male", y="Greenhouse gas emissions")
 #There is no correlation between female or male life expectancy and greenhouse gas emissions.
 
-#6
-#a Is there any association between Internet use and emissions per capita?
-#emission per capita = greenhouse gas emission/population
-# Create a new column for emissions per capita
-wdi_wide["emissions_per_capita"] = wdi_wide["Greenhouse gas emissions"] / wdi_wide["Population"]
-# Then plot using the new column
-sns.relplot(data=wdi_wide, x="Internet use", y="GNI per capita", hue="Region", kind="scatter")
-
-#b Which are the countries with high emissions? (> 0.03)
-# countries with high emissions
-high_emissions = wdi_wide[wdi_wide["emissions_per_capita"] > 0.03]
-print(high_emissions[["Country Name", "Region", "emissions_per_capita"]])
-
-#c Is there much variation by region (with respect to high emissions vs Internet use)?
-sns.relplot(data=high_emissions, x="Internet use", y="GNI per capita", kind="scatter", hue="Region")
-
-#d Do all high income economies have high emissions?
-#first I have to filter high income countries
-high_income = wdi_wide[wdi_wide["High Income Economy"] == 1]
-
-#Check which of these have high emissions per capita
-high_income["high_emitter"] = high_income["emissions_per_capita"] > 0.03
-
-# Print results
-print(high_income[["Country Name", "Region", "emissions_per_capita", "high_emitter"]])
-
-# Plot: emissions per capita for high income countries
-sns.relplot(data=high_income, x="Internet use", y="emissions_per_capita", hue="Region", kind="scatter")
-
-
-
-
-
-
->>>>>>> Stashed changes
-
 sns.relplot(data=wdi_wide, x="Life expectancy, female", y="Internet use")
 sns.relplot(data=wdi_wide, x="Life expectancy, male", y="Internet use")
 #There is some correlation between female and male life expectancy with internet usage
-
-
 
 #do greenhouse gases have an effect on female life expectancy
 sns.relplot(data=wdi_wide, x="Life expectancy, female", y="Greenhouse gas emissions", col="Region", kind="scatter")
