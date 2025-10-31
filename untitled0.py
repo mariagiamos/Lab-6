@@ -118,6 +118,21 @@ sns.relplot(data=wdi_wide, x="Life expectancy, female", y="Tertiary education, m
 sns.relplot(data=wdi_wide, x="Life expectancy, female", y="High Income Economy",col="Region", kind="scatter")
 #In all regions,there is no effect and correlation between high income economy and female life expectancy.
 
+#6
+#a Is there any association between Internet use and emissions per capita?
+#emission per capita = greenhouse gas emission/population
+# Create a new column for emissions per capita
+wdi_wide["emissions_per_capita"] = wdi_wide["Greenhouse gas emissions"] / wdi_wide["Population"]
+# Then plot using the new column
+sns.relplot(data=wdi_wide, x="Internet use", y="emissions_per_capita", hue="Region", kind="scatter")
+
+#b Which are the countries with high emissions? (> 0.03)
+# countries with high emissions
+high_emissions = wdi_wide[wdi_wide["emissions_per_capita"] > 0.03]
+print(high_emissions[["Country Name", "Region", "emissions_per_capita"]])
+
+#c Is there much variation by region (with respect to high emissions vs Internet use)?
+sns.relplot(data=high_emissions, x="Internet use", y="GNI per capita", kind="scatter", hue="Region")
 
     
 
