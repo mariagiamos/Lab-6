@@ -106,6 +106,8 @@ sns.relplot(data=wdi_wide, x="Internet use", y="GNI per capita", hue="Region", k
 high_emissions = wdi_wide[wdi_wide["emissions_per_capita"] > 0.03]
 print(high_emissions[["Country Name", "Region", "emissions_per_capita"]])
 
+#c Is there much variation by region (with respect to high emissions vs Internet use)?
+sns.relplot(data=high_emissions, x="Internet use", y="GNI per capita", kind="scatter", hue="Region")
 sns.relplot(data=wdi_wide, x="Life expectancy, female", y="Internet use")
 sns.relplot(data=wdi_wide, x="Life expectancy, male", y="Internet use")
 #There is some correlation between female and male life expectancy with internet usage
