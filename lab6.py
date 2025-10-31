@@ -1,0 +1,125 @@
+print("lab 6")
+
+#1
+#Are population size and healthcare resources balanced across the contries?
+#is there a correlation between internet usage and ,female life expectancy?
+#do females or males have a higher life expenctancy in regions?
+
+#2
+import pandas as pd
+wdi_wide=pd.read_csv("wdi_wide.csv")
+print("wdi_wide")
+import seaborn as sns
+
+#3
+#step 1, show data size and data types
+wdi_wide.info()
+#Empty Values=Total entries-Non null count
+#Physicians= 217-207=10
+#Population= 217-217=0
+
+#4
+print(wdi_wide.nunique())
+
+#5
+print(wdi_wide.describe())
+#this output of this fuction describes the statistics of the GNI and the high income economy.
+#it shows the count (number of non empty values), mean (average GNI and income), the standard deviation, the minimum value, 25% percentile , 50% (median), 75% percentile and the maximum value. 
+
+#6
+#creating a new column GNI per capita
+wdi_wide["GNI per capita"]=wdi_wide["GNI"]/wdi_wide["Population"]
+
+#rounding to the nearest cent
+print(wdi_wide["GNI per capita"].round())
+
+#7
+#a. how many contries are in each region?
+print(wdi_wide["Region"].value_counts())
+
+
+#b . how many high incomes are there?
+print(wdi_wide["High Income Economy"].value_counts())
+#150 where high income= 0, 67 where high income=1
+#africa=54,asia=50, europe=47, americas=46, oceania=19
+
+#8 where are the high income economies (per region)
+print(pd.crosstab(wdi_wide["High Income Economy"], wdi_wide["Region"]))
+
+#9
+
+#Part 4
+#1
+#plot for males
+sns.relplot(data=wdi_wide, x="Life expectancy, male", y="GNI per capita", kind="scatter")
+
+#plot for females
+sns.relplot(data=wdi_wide, x="Life expectancy, female", y="GNI per capita", kind="scatter")
+
+#2
+#plot for males
+sns.relplot(data=wdi_wide, x="Life expectancy, male", y="GNI per capita", kind="scatter", hue="Region")
+
+#plot for females
+sns.relplot(data=wdi_wide, x="Life expectancy, female", y="GNI per capita", kind="scatter", hue="Region")
+
+
+#3 (ask if its correct)
+#plot for male with lines and standard deviation
+sns.relplot(data=wdi_wide, x="Life expectancy, male", y="GNI per capita", kind="line", hue="Region", errorbar="sd")
+
+#plot for female with lines and standard deviation
+sns.relplot(data=wdi_wide, x="Life expectancy, female", y="GNI per capita", kind="line", hue="Region", errorbar="sd")
+
+#4
+#plot for males
+sns.lmplot(data=wdi_wide, x="Life expectancy, male", y="GNI per capita", hue="Region")
+
+#plot for females
+sns.lmplot(data=wdi_wide, x="Life expectancy, female", y="GNI per capita", hue="Region")
+
+
+
+
+
+#5
+sns.relplot(data=wdi_wide, x="Life expectancy, female", y="Greenhouse gas emissions")
+sns.relplot(data=wdi_wide, x="Life expectancy, male", y="Greenhouse gas emissions")
+#There is no correlation between female or male life expectancy and greenhouse gas emissions.
+
+sns.relplot(data=wdi_wide, x="Life expectancy, female", y="Internet use")
+sns.relplot(data=wdi_wide, x="Life expectancy, male", y="Internet use")
+#There is some correlation between female and male life expectancy with internet usage
+
+
+
+#do greenhouse gases have an effect on female life expectancy
+sns.relplot(data=wdi_wide, x="Life expectancy, female", y="Greenhouse gas emissions", col="Region", kind="scatter")
+#Greenhouse gases do not have any correlation with female life expectancy
+
+#does internet use have an effect on female life expectancy
+sns.relplot(data=wdi_wide, x="Life expectancy, female", y="Internet use", col="Region", kind="scatter")
+#Internet use has some correlation on female life expectancy. The internet is used throughout all kind of ages. 
+
+#do physicians have an effect on female life expectancy
+sns.relplot(data=wdi_wide, x="Life expectancy, female", y="Physicians", col="Region", kind="scatter")
+#In asia, America, Oceania there is a slight correlation although in africa there is no correlation.
+
+#does the Tertiary education for males have an effect on female life expectancy
+sns.relplot(data=wdi_wide, x="Life expectancy, female", y="Tertiary education, male", col="Region", kind="scatter")
+#There is a very weak correlation between tertiary education for males having an effect on female life expectancy in Asia, Oceania,Europe and america and close to no correlation in Africa.
+
+#does high income economy have an effect on female life expectancy
+sns.relplot(data=wdi_wide, x="Life expectancy, female", y="High Income Economy",col="Region", kind="scatter")
+#In all regions,there is no effect and correlation between high income economy and female life expectancy.
+
+
+    
+      
+     
+      
+                  
+                  
+      
+
+
