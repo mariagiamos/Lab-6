@@ -61,18 +61,18 @@ print(filtered[["Country Name", "Life expectancy, female"]])
 
 #Part 4
 #1
-#plot for male
-sns.relplot(data=wdi_wide, x="Life expectancy, male", y="GNI per capita", kind="line")
+#plot for males
+sns.relplot(data=wdi_wide, x="Life expectancy, male", y="GNI per capita", kind="scatter")
 
 #plot for females
-sns.relplot(data=wdi_wide, x="Life expectancy, female", y="GNI per capita", kind="line")
+sns.relplot(data=wdi_wide, x="Life expectancy, female", y="GNI per capita", kind="scatter")
 
 #2
 #plot for males
-sns.relplot(data=wdi_wide, x="Life expectancy, male", y="GNI per capita", kind="line", hue="Region")
+sns.relplot(data=wdi_wide, x="Life expectancy, male", y="GNI per capita", kind="scatter", hue="Region")
 
 #plot for females
-sns.relplot(data=wdi_wide, x="Life expectancy, female", y="GNI per capita", kind="line", hue="Region")
+sns.relplot(data=wdi_wide, x="Life expectancy, female", y="GNI per capita", kind="scatter", hue="Region")  
 
 #3 (ask if its correct)
 #plot for male with lines and standard deviation
