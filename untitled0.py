@@ -108,6 +108,10 @@ print(high_emissions[["Country Name", "Region", "emissions_per_capita"]])
 
 #c Is there much variation by region (with respect to high emissions vs Internet use)?
 sns.relplot(data=high_emissions, x="Internet use", y="GNI per capita", kind="scatter", hue="Region")
+
+#d Do all high income economies have high emissions?
+#first I have to filter high income countries
+high_income = wdi_wide[wdi_wide["High Income Economy"] == 1]
 sns.relplot(data=wdi_wide, x="Life expectancy, female", y="Internet use")
 sns.relplot(data=wdi_wide, x="Life expectancy, male", y="Internet use")
 #There is some correlation between female and male life expectancy with internet usage
